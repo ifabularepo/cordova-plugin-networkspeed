@@ -26,7 +26,9 @@ public class NetworkSpeedPlugin extends CordovaPlugin {
         mLastRxBytes = TrafficStats.getTotalRxBytes();
         mLastTxBytes = TrafficStats.getTotalTxBytes();
         mLastTime = System.currentTimeMillis();
-        Log.e("Network Plugin Data", mLastRxBytes + "" + mLastTxBytes + "" + mLastTime);
+        Log.e("Network Plugin Data, mLastRxBytes ", mLastRxBytes );
+        Log.e("Network Plugin Data, mLastTxBytes",  mLastTxBytes );
+        Log.e("Network Plugin Data, mLastTime",  mLastTime);
     }
 
     /**
@@ -73,11 +75,19 @@ public class NetworkSpeedPlugin extends CordovaPlugin {
             mLastRxBytes = currentRxBytes;
             mLastTxBytes = currentTxBytes;
             mLastTime = currentTime;
-
+            
+            Log.e("Network Plugin Data, mLastRxBytes ", mLastRxBytes );
+            Log.e("Network Plugin Data, mLastTxBytes",  mLastTxBytes );
+            Log.e("Network Plugin Data, mLastTime",  mLastTime);
+            Log.e("Network Plugin Data, currentTime  ", currentTime  );
+            Log.e("Network Plugin Data, usedTime",  usedTime );
+            
             long totalBytes = usedRxBytes + usedTxBytes;
+            Log.e("Network Plugin Data, totalBytes",  totalBytes );
             double totalSpeed = 0;
             if (usedTime > 0) {
                 totalSpeed = (double) totalBytes / usedTime;
+                Log.e("Network Plugin Data, totalSpeed", totalSpeed );
             }
 
             if (totalSpeed > 1) {
